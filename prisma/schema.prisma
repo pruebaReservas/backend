@@ -21,3 +21,14 @@ model Rooms {
   createdAt DateTime @default(now())
   updateAt DateTime @updatedAt
 }
+
+model Users{
+  id Int @id @default(autoincrement())
+  name String
+  last_name String
+  password String
+  email String
+
+  createdAt DateTime @default(now())
+  updateAt DateTime @updatedAt
+}

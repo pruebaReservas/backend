@@ -31,4 +31,9 @@ export class UsersController {
   remove(@Param('id') id: string) {
     return this.usersService.remove(+id);
   }
+
+  @Get(':id/reservations')
+  findReservations(@Param('id') id: number) {
+    return this.usersService.getReservations(+id);
+  }
 }

@@ -20,6 +20,8 @@ model Rooms {
 
   createdAt DateTime @default(now())
   updateAt DateTime @updatedAt
+
+  Reservations Reservations[]
 }
 
 model Users{
@@ -31,4 +33,20 @@ model Users{
 
   createdAt DateTime @default(now())
   updateAt DateTime @updatedAt
+
+  Reservations Reservations[]
+}
+
+model Reservations {
+  id        Int    @id @default(autoincrement())
+  id_users  Int
+  id_rooms  Int
+  user      Users  @relation(fields: [id_users], references: [id])
+  room      Rooms  @relation(fields: [id_rooms], references: [id])
+
+  start_date DateTime
+  end_date DateTime
+
+  createdAt DateTime @default(now())
+  updateAt  DateTime @updatedAt
 }

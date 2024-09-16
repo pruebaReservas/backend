@@ -14,7 +14,7 @@ export class RoomsService extends PrismaClient implements OnModuleInit {
   create(createRoomDto: CreateRoomDto) {
     return this.rooms.create({
       data: createRoomDto
-    })
+    });
   }
 
   findAll() {
@@ -26,21 +26,19 @@ export class RoomsService extends PrismaClient implements OnModuleInit {
       where: {
         id
       }
-    })
+    });
   }
 
   update(id: number, updateRoomDto: UpdateRoomDto) {
     return this.rooms.update({
-  where: {id},
-  data: updateRoomDto
-})
+      where: { id },
+      data: updateRoomDto
+    });
   }
 
   remove(id: number) {
     return this.rooms.delete({
-      where:{
-        id
-      }
-    })
+      where: {id}
+    });
   }
 }
